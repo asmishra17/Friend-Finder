@@ -9,6 +9,8 @@ var apiRoutes = require("./app/routing/apiRoutes.js");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+app.use(express.static("public"));
+
 // setting up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
