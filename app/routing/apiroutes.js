@@ -7,8 +7,32 @@ module.exports = function (app) {
         response.json(friendsArr);
     });
 
+    var summedDiffArr = [];
     app.post("/api/friends", function (request, response){
+        
+        // compare new user results 
+        for (var i = 0; i < friendsArr.length; i++) {
+            var newFriendScores = request.body.scores;
+            var existingFriendScores = friendsArr[i].scores;
+
+            var difference = []; 
+            for (let i = 0; i < newFriendScores.length; i++) {
+                difference.push(Math.abs(newFriendScores[i] - existingFriendScores[i]));
+            }
+            
+            var summedDifference = difference.reduce(add, 0);
+            function add (a, b) {
+                return a + b;
+            }
+
+            summedDiffArr.push(summedDifference);
+        }
+        var closestMatch = Math.min(summedDiffArr);
+        console.log(closestMatch);
+        
         friendsArr.push(request.body);
         //response.json(true);
+
+
     });
 };

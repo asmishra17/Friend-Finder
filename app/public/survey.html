@@ -200,8 +200,7 @@
             </div>
         </div>
     </div>
-</body>
-<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script type = "text/javascript">
     $(".submit").on("click", function (event) {
         event.preventDefault();
@@ -224,32 +223,36 @@
         // }
 
         // if (validateForm()) {
+            var name = $(".name").val().trim();
+            var photo = $(".pic").val().trim();
+            var scoresArr = [];
+            
+            for (var i = 1; i < 10; i++) {
+                scoresArr.push(+($(`#q${i}`).val()));
+            } 
+
             var userData = {
-                name: $(".name").val().trim(),
-                photo: $(".pic").val().trim(),
-                scores: [
-                $("#q1").val(),
-                $("#q2").val(),
-                $("#q3").val(),
-                $("#q4").val(),
-                $("#q5").val(),
-                $("#q6").val(),
-                $("#q7").val(),
-                $("#q8").val(),
-                $("#q9").val(),
-                $("#q10").val()
-                ]
+                name: name,
+                photo: photo,
+                scores: scoresArr
             };
 
             console.log(userData);
 
             $.post("/api/friends", userData, function(data) {
-                console.log("New friend added!");
+                // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                // $("").text(data.name);
+                // $("").attr("src", data.photo);
+
+                // Show the modal with the best match
+                //$("#results-modal").modal("toggle");
             });
         // } else {
         //     alert("Please fill out all fields before submitting.")
         // }
     });
 </script>
-
+</body>
 </html>
+
+
