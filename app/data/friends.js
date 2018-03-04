@@ -1,4 +1,4 @@
-module.exports = [
+module.exports.friends = [
     {
         name: "Aditi",
         photo: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/367a7623208445.563236ad8f3be.jpg",

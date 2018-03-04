@@ -23,11 +23,11 @@
             <div class = "col-md-12">
                 <h5>Name (required)</h5>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" class="name form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                 </div>
                 <h5>Link to Photo Image (required)</h5>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" class="pic form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                 </div>
                 <hr class="my-4">     
             </div>
@@ -36,7 +36,7 @@
             <div class = "col-md-12">
                 <h4>Question 1</h4>
                 <h5>You use and enjoy social media.</h5>
-                <select>
+                <select class = "chosen" id = "q1">
                         <option selected disabled>Select an option</option>
                         <option value="1">1 (strongly disagree)</option>
                         <option value="2">2</option>
@@ -51,7 +51,7 @@
             <div class = "col-md-12">
                 <h4>Question 2</h4>
                 <h5>You would describe yourself as a picky eater.</h5>
-                    <select>
+                    <select class = "chosen" id = "q2">
                         <option selected disabled>Select an option</option>
                         <option value="1">1 (strongly disagree)</option>
                         <option value="2">2</option>
@@ -66,7 +66,7 @@
                 <div class = "col-md-12">
                     <h4>Question 3</h4>
                     <h5>You keep up with, and enjoy discussing, current events.</h5>
-                    <select>
+                    <select class = "chosen" id = "q3">
                         <option selected disabled>Select an option</option>
                         <option value="1">1 (strongly disagree)</option>
                         <option value="2">2</option>
@@ -81,7 +81,7 @@
                 <div class = "col-md-12">
                     <h4>Question 4</h4>
                     <h5>You make friends easily.</h5>
-                    <select>
+                    <select class = "chosen" id = "q4">
                         <option selected disabled>Select an option</option>
                         <option value="1">1 (strongly disagree)</option>
                         <option value="2">2</option>
@@ -96,7 +96,7 @@
                 <div class = "col-md-12">
                     <h4>Question 5</h4>
                     <h5>You get angry easily.</h5>
-                    <select>
+                    <select class = "chosen" id = "q5">
                         <option selected disabled>Select an option</option>
                         <option value="1">1 (strongly disagree)</option>
                         <option value="2">2</option>
@@ -111,7 +111,7 @@
                 <div class = "col-md-12">
                     <h4>Question 6</h4>
                     <h5>You see beauty in things that others might not notice.</h5>
-                    <select>
+                    <select class = "chosen" id = "q6">
                         <option selected disabled>Select an option</option>
                         <option value="1">1 (strongly disagree)</option>
                         <option value="2">2</option>
@@ -126,7 +126,7 @@
                 <div class = "col-md-12">
                     <h4>Question 7</h4>
                     <h5>You would describe yourself as reliable.</h5>
-                    <select>
+                    <select class = "chosen" id = "q7">
                         <option selected disabled>Select an option</option>
                         <option value="1">1 (strongly disagree)</option>
                         <option value="2">2</option>
@@ -141,7 +141,7 @@
                 <div class = "col-md-12">
                     <h4>Question 8</h4>
                     <h5>You would rather do things quickly than perfectly.</h5>
-                    <select>
+                    <select class = "chosen" id = "q8">
                         <option selected disabled>Select an option</option>
                         <option value="1">1 (strongly disagree)</option>
                         <option value="2">2</option>
@@ -156,7 +156,7 @@
                 <div class = "col-md-12">
                     <h4>Question 9</h4>
                     <h5>You like helping others.</h5>
-                    <select>
+                    <select class = "chosen" id = "q9">
                         <option selected disabled>Select an option</option>
                         <option value="1">1 (strongly disagree)</option>
                         <option value="2">2</option>
@@ -171,7 +171,7 @@
                 <div class = "col-md-12">
                     <h4>Question 10</h4>
                     <h5>You like sushi.</h5>
-                    <select>
+                    <select class = "chosen" id = "q10">
                         <option selected disabled>Select an option</option>
                         <option value="1">1 (strongly disagree)</option>
                         <option value="2">2</option>
@@ -185,7 +185,7 @@
         <div class = "row">
             <div class = "col-md-12">
                 <br>
-                <button type="button" class="btn btn-primary btn-lg btn-block">
+                <button type="button" class="submit btn btn-primary btn-lg btn-block">
                     <i class="fas fa-check-square"></i>
                     Submit
                 </button>
@@ -195,15 +195,61 @@
         <div class = "row">
             <div class = "col-md-12">
                 <p>
-                    <a href = "#">API Friends List</a> | <a href = "https://github.com/asmishra17/Friend-Finder">GitHub Repo</a>
+                    <a href = "/api/friends">API Friends List</a> | <a href = "https://github.com/asmishra17/Friend-Finder">GitHub Repo</a>
                 </p>
             </div>
         </div>
     </div>
 </body>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type = "text/javascript">
+    $(".submit").on("click", function (event) {
+        event.preventDefault();
 
-<script>
-    // insert submit button logic here. "On click" display modal 
+        // Form validation
+        // function validateForm() {
+        //     var isValid = true;
+        //     $(".form-control").each(function() {
+        //         if ($(this).val() = "") {
+        //             isValid = false;
+        //         }
+        //     });
+
+        //     $(".chosen").each(function() {
+        //         if ($(this).val() === "") {
+        //             isValid = false;
+        //         }
+        //     });
+        //     return isValid;
+        // }
+
+        // if (validateForm()) {
+            var userData = {
+                name: $(".name").val().trim(),
+                photo: $(".pic").val().trim(),
+                scores: [
+                $("#q1").val(),
+                $("#q2").val(),
+                $("#q3").val(),
+                $("#q4").val(),
+                $("#q5").val(),
+                $("#q6").val(),
+                $("#q7").val(),
+                $("#q8").val(),
+                $("#q9").val(),
+                $("#q10").val()
+                ]
+            };
+
+            console.log(userData);
+
+            $.post("/api/friends", userData, function(data) {
+                console.log("New friend added!");
+            });
+        // } else {
+        //     alert("Please fill out all fields before submitting.")
+        // }
+    });
 </script>
 
 </html>
