@@ -27,8 +27,13 @@ module.exports = function (app) {
 
             summedDiffArr.push(summedDifference);
         }
-        var closestMatch = Math.min(summedDiffArr);
+        console.log(summedDiffArr);
+        var closestMatch = Math.min(...summedDiffArr);
         console.log(closestMatch);
+
+        var trueMatch = summedDiffArr.indexOf(closestMatch);
+        console.log(summedDiffArr);
+        // push friend with index true match to modal!
         
         friendsArr.push(request.body);
         //response.json(true);
