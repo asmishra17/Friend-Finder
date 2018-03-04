@@ -18,7 +18,6 @@ htmlRoutes(app);
 // starting data 
 var friends = [
     {
-      routeName: "aditi",
       name: "Aditi",
       photo: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/367a7623208445.563236ad8f3be.jpg",
       q1: 1,
