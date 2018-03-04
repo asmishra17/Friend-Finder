@@ -32,11 +32,15 @@ module.exports = function (app) {
         console.log(closestMatch);
 
         var trueMatch = summedDiffArr.indexOf(closestMatch);
-        console.log(summedDiffArr);
-        // push friend with index true match to modal!
+        console.log(trueMatch);
         
+        // sending true match to modal
+        response.send(friendsArr[trueMatch]);
+        console.log(friendsArr[trueMatch]);
+
+        // sending new friend to friends array
         friendsArr.push(request.body);
-        //response.json(true);
+        
 
 
     });
