@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Friend Finder Survey</title>
-    <!-- Linking Bootstrap -->
+    <!-- Linking Bootstrap and jQuery -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <!-- Linking Font Awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <style>
-        
-    </style>
+    
 </head>
 <body>
     <div class = "container">
@@ -188,7 +188,7 @@
         <div class = "row">
             <div class = "col-md-12">
                 <br>
-                <button type="button" class="submit btn btn-primary btn-lg btn-block" data-toggle="modal" href="#myModal1">
+                <button type="button" class="submit btn btn-primary btn-lg btn-block">
                     <i class="fas fa-check-square"></i>
                     Submit
                 </button>
@@ -196,10 +196,6 @@
             </div>
         </div>
         <div class = "row">
-            <div class = "col-md-12">
-                <div id = "match-name"></div>
-                <img id = "match-img">
-            </div>
         </div>
         <div class = "row">
             <div class = "col-md-12">
@@ -214,22 +210,20 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">Modal title</h4>
+                    <h4 class="modal-title">Your true match:</h4>
                 </div>
                 <div class="modal-body">
-                    Modal body content
+                    <div id = "match-name"></div>
+                    <img id = "match-img">  
                 </div>
-                    <div class="modal-footer">Modal Footer Content
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     </div>
       
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
 <script type = "text/javascript">
     $(".submit").on("click", function (event) {
         event.preventDefault();
@@ -270,8 +264,6 @@
                 // Grab the result from the AJAX post so that the best match's name and photo are displayed.
                 $("#match-name").text(data.name);
                 $("#match-img").attr("src", data.photo);
-
-                // Show the modal with the best match
                 
             });
         } else {
