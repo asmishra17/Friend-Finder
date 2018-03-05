@@ -35,13 +35,11 @@ module.exports = function (app) {
         console.log(trueMatch);
         
         // sending true match to modal
-        response.send(friendsArr[trueMatch]);
+        response.json(friendsArr[trueMatch]);
         console.log(friendsArr[trueMatch]);
 
         // sending new friend to friends array
-        friendsArr.push(request.body);
-        
-
+        friendsArr.push(request.body);  
 
     });
 };
